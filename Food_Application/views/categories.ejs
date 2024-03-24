@@ -27,25 +27,25 @@
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/categories">Shoping Cart</a>
+                        <a class="nav-link active" aria-current="page" href="/categories">Food</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/home">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/categories">categories</a>
+                        <a class="nav-link" href="/categoryForms">category Forms</a>
                     </li>
-                    <li class="nav-item">
+                    {{!-- <li class="nav-item">
                         <a class="nav-link" href="/addcategories">Add Categories</a>
-                    </li>
+                    </li> --}}
                   
-                    <li class="nav-item">
+                    {{!-- <li class="nav-item">
                         <a class="nav-link" href="/addForms">Add Forms</a>
-                    </li>
+                    </li> --}}
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" method="post" action="/search" role="search">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -58,25 +58,22 @@
         <div class="h1 text-center text-primary">Categories of Foods</div>
         <div class="row">
 
-            {{#each categoryName}}
-            <%categoryName.forEach((val)=>{>
-            <div class="col-2 shadow-sm mt-5">
+           
+            <% category.forEach((val)=>{ %>
+            <div class="col-3 shadow-sm mt-5">
                 <div class="card w-100">
-                    <img src="/upload/{{this.img}}" style="width:100%;height:200px" class="card-img-top" alt="...">
+                    <a href="/category-detail/<%=val.name%>"><img src="/upload/<%=val.img%>" style="width: 100%;height:440px" class="card-img-top" alt="..."></a>
                     <div class="card-body bg-white text-primary">
-                        <h5 class="card-title"><span class="text-danger">Category</span> <%=val.name%> </h5>
-                        <h5 class="card-title"><span class="text-danger">Type</span> <%=val.type%> </h5>
-                         <!-- <h5 class="card-title"><span class="text-danger">Detail</span> {{this.detail}} </h5>  -->
-                        <h5 class="card-title"><span class="text-danger">Price</span> <%=val.price%></h5>
+                        <h5 class="card-title">Category <%=val.name%> <i class="bi bi-category"></i></h5>
+                        <h5 class="card-title">Type <%=val.type%> <i class="bi bi-category"></i></h5>
 
-                        <!-- <button href="/shopinglist"  class="btn btn-secondary" data-product="{{this}}">Add</button>  -->
+                       <!-- <button href="/shopinglist"  class="btn btn-secondary" data-product="{{this}}">Add</button>  -->
                         <!-- <a href="/shopinglist/{{this._id}}" class="btn btn-secondary">Add</a>  -->
                     </div>
                 </div>
             </div>
-
-            {{/each}}
-            <%})%>
+<%})%>
+         
         </div>
 
     </div>
@@ -87,8 +84,7 @@
 
 
 
-<!-- <script src="/static/js/cart.js"></script> - -->
-
+ <!-- <script src="/static/js/cart.js"></script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

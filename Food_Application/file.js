@@ -46,6 +46,30 @@ app.get('/home',async(req,res)=>{
 })
 
 
+
+
+
+app.get('/categories',async(req,res)=>{
+    try{
+        const {name}=req.query
+        const queryObject={}
+
+        if(name){
+            queryObject.name={$regex:name,$options:"i"}
+        }
+
+
+        const category=await categoriesDetail.find(queryObject).limit(22)
+        res.render('categories',{category})
+    }catch(e){
+        res.send(e)
+    }
+ 
+})
+
+
+
+
 app.listen(3000,()=>{
     console.log('port is listening')
 })
