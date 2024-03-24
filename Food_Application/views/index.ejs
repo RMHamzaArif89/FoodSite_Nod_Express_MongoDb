@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 
-    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
@@ -22,8 +22,8 @@
             <li class="active"><a href="/home">Home</a></li>
             <li><a href="/categories">Categories</a></li>
             <li><a href="/categoryForms">catForms</a></li>
-            {{!-- <li><a href="/addcategories">addCat</a></li> --}}
-            {{!-- <li><a href="/addForms">addForms</a></li> --}}
+            <!-- <li><a href="/addcategories">addCat</a></li> -->
+            <!-- <li><a href="/addForms">addForms</a></li> -->
             <li><a href="#order">Order</a></li>
         </div>
 
@@ -238,50 +238,57 @@
         <div class="dishes-heading">Our Dishes
             <div class="dishes-heading-2">POPULAR DISHES</div>
         </div>
-
+      
 
         <div class="dishes-row">
-            {{#each category}}
-            <div class="dishes-col">
-                <div class="col-icons">
-                    <i class="bi bi-eye-fill"></i>
-                    <i class="bi bi-heart-fill"></i>
-
-                </div>
-                <img src="/upload/{{this.img}}" alt="" class="col-img">
-
-
-                <div class="col-heading">
-                    {{this.name}}
-                </div>
-
-
-
-                <div class="dishes-star">
-                    <div class="star">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-half"></i>
+            <!-- {{#each category}} -->
+            <% category.forEach((val)=>{
+                %>
+                <div class="dishes-col">
+                    <div class="col-icons">
+                        <i class="bi bi-eye-fill"></i>
+                        <i class="bi bi-heart-fill"></i>
+    
                     </div>
-                </div>
-
-
-                <div class="col-details">
-                    <div class="col-price">
-                        {{this.price}}
+                    <img src="/upload/<%=val.img%>" alt="" class="col-img">
+    
+    
+                    <div class="col-heading">
+                        <!-- {{this.name}} -->
+                        <%= val.name%>
                     </div>
-
-                    <div class="col-btn-2">
-                        Add To Cart
+    
+    
+    
+                    <div class="dishes-star">
+                        <div class="star">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
                     </div>
-
+    
+    
+                    <div class="col-details">
+                        <div class="col-price">
+                            <!-- {{this.price}} -->
+                            <%= val.price%>
+                        </div>
+    
+                        <div class="col-btn-2">
+                            Add To Cart
+                        </div>
+    
+                    </div>
+    
+    
                 </div>
-
-
-            </div>
-            {{/each}}
+                <%
+            })%>
+           
+            <!-- {{/each}} -->
         </div>    
     </div>
 
@@ -297,7 +304,7 @@
 
 
 
-{{!-- chiken dish --}}
+<!-- chicken dish -->
 
 
   <div class="container-dishes" id="dishes">
@@ -308,47 +315,53 @@
 
 
         <div class="dishes-row">
-            {{#each cat1}}
-            <div class="dishes-col">
-                <div class="col-icons">
-                    <i class="bi bi-eye-fill"></i>
-                    <i class="bi bi-heart-fill"></i>
-
-                </div>
-                <img src="/upload/{{this.img}}" alt="" class="col-img">
-
-
-                <div class="col-heading">
-                    {{this.name}}
-                </div>
-
-
-
-                <div class="dishes-star">
-                    <div class="star">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-half"></i>
+            
+            <% cat1.forEach((val)=>{%>
+                <div class="dishes-col">
+                    <div class="col-icons">
+                        <i class="bi bi-eye-fill"></i>
+                        <i class="bi bi-heart-fill"></i>
+    
                     </div>
-                </div>
-
-
-                <div class="col-details">
-                    <div class="col-price">
-                        ${{this.price}}
+                    <img src="/upload/<%=val.img%>" alt="" class="col-img">
+    
+    
+                    <div class="col-heading">
+                        
+                        <%= val.name%>
                     </div>
-
-                    <div class="col-btn-2">
-                        Cart
+    
+    
+    
+                    <div class="dishes-star">
+                        <div class="star">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
                     </div>
-
+    
+    
+                    <div class="col-details">
+                        <div class="col-price">
+                           
+                            <%=val.price%>
+                        </div>
+    
+                        <div class="col-btn-2">
+                            Cart
+                        </div>
+    
+                    </div>
+    
+    
                 </div>
-
-
-            </div>
-            {{/each}}
+                
+            <%})%>
+         
+         
         </div>
 
 
@@ -383,7 +396,7 @@
 
 
 
-{{!-- Sandwitch --}}
+<!-- sandwitch -->
   <div class="container-dishes" id="dishes">
         <div class="dishes-heading">Sandwiches
 
@@ -392,14 +405,15 @@
 
 
         <div class="dishes-row">
-            {{#each cat2}}
+           
+           <% cat2.forEach((val)=>{%>
             <div class="dishes-col">
                 <div class="col-icons">
                     <i class="bi bi-eye-fill"></i>
                     <i class="bi bi-heart-fill"></i>
 
                 </div>
-                <img src="/upload/{{this.img}}" alt="" class="col-img">
+                <img src="/upload/<%val.img%>" alt="" class="col-img">
 
 
                 <div class="col-heading">
@@ -422,7 +436,7 @@
 
                 <div class="col-details">
                     <div class="col-price">
-                        ${{this.price}}
+                        <%val.price%>
                     </div>
 
                     <div class="col-btn-2">
@@ -433,7 +447,8 @@
 
 
             </div>
-            {{/each}}
+           <%})%>
+         
         </div>
     </div>
 
@@ -452,7 +467,7 @@
 
 
 
-{{!-- Beef --}}
+<!-- beef -->
 
   <div class="container-dishes" id="dishes">
         <div class="dishes-heading">Beef
@@ -462,18 +477,19 @@
 
 
         <div class="dishes-row">
-            {{#each cat3}}
+          
+           <% cat3.forEach((val)=>{%>
             <div class="dishes-col">
                 <div class="col-icons">
                     <i class="bi bi-eye-fill"></i>
                     <i class="bi bi-heart-fill"></i>
 
                 </div>
-                <img src="/upload/{{this.img}}" alt="" class="col-img">
+                <img src="/upload/<%val.img%>" alt="" class="col-img">
 
 
                 <div class="col-heading">
-                    {{this.name}}
+                    <%val.name%>
                 </div>
 
 
@@ -491,7 +507,7 @@
 
                 <div class="col-details">
                     <div class="col-price">
-                        ${{this.price}}
+                        <%val.price%>
                     </div>
 
                     <div class="col-btn-2">
@@ -502,7 +518,8 @@
 
 
             </div>
-            {{/each}}
+           <%})%>
+         
         </div>
 
 
@@ -524,7 +541,7 @@
 
 
 
-{{!-- recentenly added --}}
+<!-- recently added -->
 
   <div class="container-dishes" id="dishes">
         <div class="dishes-heading">Recently Added
@@ -534,18 +551,18 @@
 
 
         <div class="dishes-row">
-            {{#each newCat}}
+           <% newCat.forEach((val)=>{%>
             <div class="dishes-col">
                 <div class="col-icons">
                     <i class="bi bi-eye-fill"></i>
                     <i class="bi bi-heart-fill"></i>
 
                 </div>
-                <img src="/upload/{{this.img}}" alt="" class="col-img">
+                <img src="/upload/<%val.img%>" alt="" class="col-img">
 
 
                 <div class="col-heading">
-                    {{this.name}}
+                    <%val.name%>
                 </div>
 
 
@@ -563,7 +580,7 @@
 
                 <div class="col-details">
                     <div class="col-price">
-                        ${{this.price}}
+                        <%val.price%>
                     </div>
 
                     <div class="col-btn-2">
@@ -574,7 +591,7 @@
 
 
             </div>
-            {{/each}}
+           <%})%>
         </div>
         
     </div>
