@@ -13,21 +13,21 @@
 <body>
 <!-- forms -->
     <div class="container w-50 d-flex align-items-center flex-column">
-        <form action="/addcategory/<=%category.id%>" method="post" class="row g-3" enctype="multipart/form-data">
+        <form action="/addcategory/<%=category.id%>" method="post" class="row g-3" enctype="multipart/form-data">
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Category Name</label>
-                <input type="text" name="name" class="form-control" id="inputEmail4" value="<=%category.name%>">
+                <input type="text" name="name" class="form-control" id="inputEmail4" value="<%=category.name%>">
             </div>
            
          
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Category Type</label>
-                <input type="text" name="type" class="form-control" id="inputAddress2" value="<=%category.type%>"  >
+                <input type="text" name="type" class="form-control" id="inputAddress2" value="<%=category.type%>"  >
             </div>
 
             <div class="col-12">
                 <label for="inputZip" class="form-label">Image</label>
-                <input type="file"  accept="image/*" name="img" id="" class="form-control" value="<=%category.img%>">
+                <input type="file"  accept="image/*" name="img" id="" class="form-control" value="<%=category.img%>">
 
             </div>
 

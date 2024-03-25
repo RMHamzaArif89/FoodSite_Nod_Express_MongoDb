@@ -18,6 +18,11 @@ app.use(express.static('static'))
 app.use("/upload",express.static('upload'))
 
 
+//addForms Router
+const addForms=require('./Routes/Forms')
+app.use(addForms)
+
+
 //require the connection with db
 require('./db/conn')
 
@@ -65,6 +70,14 @@ app.get('/categories',async(req,res)=>{
         res.send(e)
     }
  
+})
+
+
+
+
+app.get('/categoryForms',async(req,res)=>{
+    const categoryName=await catTypes.find({})
+    res.render('categoriesTypes',{categoryName})
 })
 
 

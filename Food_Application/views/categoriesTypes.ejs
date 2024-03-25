@@ -58,11 +58,11 @@
         <div class="h1 text-center text-primary">Categories of Foods</div>
         <div class="row">
 
-            {{#each categoryName}}
-            <%categoryName.forEach((val)=>{>
+         
+            <%categoryName.forEach((val)=>{%>
             <div class="col-2 shadow-sm mt-5">
                 <div class="card w-100">
-                    <img src="/upload/{{this.img}}" style="width:100%;height:200px" class="card-img-top" alt="...">
+                    <img src="/upload/<%=val.img%>" style="width:100%;height:200px" class="card-img-top" alt="...">
                     <div class="card-body bg-white text-primary">
                         <h5 class="card-title"><span class="text-danger">Category</span> <%=val.name%> </h5>
                         <h5 class="card-title"><span class="text-danger">Type</span> <%=val.type%> </h5>
@@ -75,7 +75,7 @@
                 </div>
             </div>
 
-            {{/each}}
+         
             <%})%>
         </div>
 
