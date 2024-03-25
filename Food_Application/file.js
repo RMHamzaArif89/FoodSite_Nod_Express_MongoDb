@@ -83,6 +83,19 @@ app.get('/categoryForms',async(req,res)=>{
 
 
 
+
+
+
+
+
+app.get('/category-detail/:name',async(req,res)=>{
+    let Name=req.params.name
+    let product=await catTypes.findOne({name:Name})
+    res.render('ProductDetail',{product})
+    // res.send(categoryName)
+    // res.send(Name)
+})
+
 app.listen(3000,()=>{
     console.log('port is listening')
 })
